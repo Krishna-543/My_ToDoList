@@ -25,13 +25,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Dashboard UI | Task Add/Delete |
-|--------------|------------------|
-| ![dashboard](https://via.placeholder.com/300x150.png?text=ToDo+UI) | ![adddelete](https://via.placeholder.com/300x150.png?text=Add+%2F+Delete+Task) |
-
----
 
 ## 🚀 Getting Started
 
