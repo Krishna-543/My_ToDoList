@@ -15,7 +15,7 @@ var jsonParser = bodyParser.json();
 const conn = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "krishna135",
     database: "todo"
 });
 
@@ -68,6 +68,37 @@ app.post('/task', jsonParser, function (req, res) {
         console.log("Added task succcesfully")
     });
     res.send("Added task succcesfully");
+});
+
+app.put('/task/:taskId', jsonParser, function (req, res) {
+    const taskId = req.params.taskId;
+    const { task_name } = req.body;
+
+    conn.query("UPDATE task SET Task = ? WHERE TaskID = ?;", [task_name, taskId], function (err, result) {
+        if (err) {
+            console.error(err);
+            res.status(500).json('Internal Server Error');
+            return;
+        }
+        console.log("Task updated successfully");
+        res.send("Task updated successfully");
+    });
+});
+
+// Endpoint to update a task
+app.put('/task/:taskId', jsonParser, function (req, res) {
+    const taskId = req.params.taskId;
+    const { task_name } = req.body;
+
+    conn.query("UPDATE task SET Task = ? WHERE TaskID = ?", [task_name, taskId], function (err, result) {
+        if (err) {
+            console.error(err);
+            res.status(500).send("Failed to update task");
+            return;
+        }
+        console.log("Task updated successfully!");
+        res.send("Task updated successfully!");
+    });
 });
 
 
